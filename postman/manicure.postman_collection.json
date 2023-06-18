@@ -1,0 +1,2626 @@
+{
+	"info": {
+		"_postman_id": "dd7363f6-89a9-4fd7-822c-d026d44d3902",
+		"name": "Manicure",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21754447"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create user id 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+									"});",
+									"pm.test(\"Test create user\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.id, '\"id\" field').to.eql(1);",
+									"    pm.expect(jsonData.firstName, '\"firstName\" field').to.eql('user');",
+									"    pm.expect(jsonData.lastName, '\"lastName\" field').to.eql('users');",
+									"    pm.expect(jsonData.patronymic, '\"patronymic\" field').to.eql('userssss');",
+									"    pm.expect(jsonData.email, '\"email\" field').to.eql('user@user.com');",
+									"     pm.expect(jsonData.phone, '\"phone\" field').to.eql('+79216407710');",
+									"     pm.expect(jsonData.birthday, '\"birthday\" field').to.eql('1985-09-09');",
+									"     pm.expect(jsonData.isMaster, '\"isMaster\" field').to.eql(true);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"user\",\n    \"lastName\": \"users\",\n    \"patronymic\": \"userssss\",\n    \"email\": \"user@user.com\",\n    \"phone\": \"+79216407710\",\n    \"birthday\": \"1985-09-09\",\n    \"isMaster\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create user with null first name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"lastName\": \"users\",\n    \"patronymic\": \"userssss\",\n    \"email\": \"user@user.com\",\n    \"phone\": \"+79216407710\",\n    \"birthday\": \"1985-09-09\",\n    \"isMaster\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create user with empty first name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"\",\n    \"lastName\": \"users\",\n    \"patronymic\": \"userssss\",\n    \"email\": \"user@user.com\",\n    \"phone\": \"+79216407710\",\n    \"birthday\": \"1985-09-09\",\n    \"isMaster\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create user with null last name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"user\",\n    \"patronymic\": \"userssss\",\n    \"email\": \"user@user.com\",\n    \"phone\": \"+79216407710\",\n    \"birthday\": \"1985-09-09\",\n    \"isMaster\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create user with empty last name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"user\",\n    \"lastName\": \"   \",\n    \"patronymic\": \"userssss\",\n    \"email\": \"user@user.com\",\n    \"phone\": \"+79216407710\",\n    \"birthday\": \"1985-09-09\",\n    \"isMaster\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create user with duplicate email",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"user\",\n    \"lastName\": \"users\",\n    \"patronymic\": \"userssss\",\n    \"email\": \"user@user.com\",\n    \"phone\": \"+79216407710\",\n    \"birthday\": \"1985-09-09\",\n    \"isMaster\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create user with wrong email",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"user\",\n    \"lastName\": \"users\",\n    \"patronymic\": \"userssss\",\n    \"email\": \"useruser.com\",\n    \"phone\": \"+79216407715\",\n    \"birthday\": \"1985-09-09\",\n    \"isMaster\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create user with empty email",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"user\",\n    \"lastName\": \"users\",\n    \"patronymic\": \"userssss\",\n    \"email\": \"\",\n    \"phone\": \"+79216407710\",\n    \"birthday\": \"1985-09-09\",\n    \"isMaster\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create user with null email",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"user\",\n    \"lastName\": \"users\",\n    \"patronymic\": \"userssss\",\n    \"phone\": \"+79216407710\",\n    \"birthday\": \"1985-09-09\",\n    \"isMaster\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create user with empty phone",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"user\",\n    \"lastName\": \"users\",\n    \"patronymic\": \"userssss\",\n    \"email\": \"user1234@user.com\",\n    \"phone\": \"\",\n    \"birthday\": \"1985-09-09\",\n    \"isMaster\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create user with duplicate phone",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"user\",\n    \"lastName\": \"users\",\n    \"patronymic\": \"userssss\",\n    \"email\": \"user1234@user.com\",\n    \"phone\": \"+79216407710\",\n    \"birthday\": \"1985-09-09\",\n    \"isMaster\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create user with null phone",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"user\",\n    \"lastName\": \"users\",\n    \"patronymic\": \"userssss\",\n    \"email\": \"user1234@user.com\",\n    \"birthday\": \"1985-09-09\",\n    \"isMaster\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create user with future birthday",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"user\",\n    \"lastName\": \"users\",\n    \"patronymic\": \"userssss\",\n    \"email\": \"user1234@user.com\",\n    \"phone\": \"+79216407798\",\n    \"birthday\": \"2050-09-09\",\n    \"isMaster\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create user with null birthday",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"user\",\n    \"lastName\": \"users\",\n    \"patronymic\": \"userssss\",\n    \"email\": \"user1234@user.com\",\n    \"phone\": \"+79216407798\",\n    \"isMaster\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create user with null isMaster",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"user\",\n    \"lastName\": \"users\",\n    \"patronymic\": \"userssss\",\n    \"email\": \"user@user.com\",\n    \"phone\": \"+79216407710\",\n    \"birthday\": \"1985-09-09\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user id 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+									"});",
+									"pm.test(\"Test get user\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.id, '\"id\" field').to.eql(1);",
+									"    pm.expect(jsonData.firstName, '\"firstName\" field').to.eql('user');",
+									"    pm.expect(jsonData.lastName, '\"lastName\" field').to.eql('users');",
+									"    pm.expect(jsonData.patronymic, '\"patronymic\" field').to.eql('userssss');",
+									"    pm.expect(jsonData.email, '\"email\" field').to.eql('user@user.com');",
+									"     pm.expect(jsonData.phone, '\"phone\" field').to.eql('+79216407710');",
+									"     pm.expect(jsonData.birthday, '\"birthday\" field').to.eql('1985-09-09');",
+									"     pm.expect(jsonData.isMaster, '\"isMaster\" field').to.eql(true);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/user/:userId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user id 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([404]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/user/2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update user 1 with null name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+									"});",
+									"pm.test(\"Test update user\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.id, '\"id\" field').to.eql(1);",
+									"    pm.expect(jsonData.firstName, '\"firstName\" field').to.eql('user');",
+									"    pm.expect(jsonData.lastName, '\"lastName\" field').to.eql('updatedusers');",
+									"    pm.expect(jsonData.patronymic, '\"patronymic\" field').to.eql('updateduserssss');",
+									"    pm.expect(jsonData.email, '\"email\" field').to.eql('updateduser@user.com');",
+									"     pm.expect(jsonData.phone, '\"phone\" field').to.eql('+79214477711');",
+									"     pm.expect(jsonData.birthday, '\"birthday\" field').to.eql('1985-09-10');",
+									"     pm.expect(jsonData.isMaster, '\"isMaster\" field').to.eql(true);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"lastName\": \"updatedusers\",\n    \"patronymic\": \"updateduserssss\",\n    \"email\": \"updateduser@user.com\",\n    \"phone\": \"+79214477711\",\n    \"birthday\": \"1985-09-10\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update user 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+									"});",
+									"pm.test(\"Test update user\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.id, '\"id\" field').to.eql(1);",
+									"    pm.expect(jsonData.firstName, '\"firstName\" field').to.eql('updateduser');",
+									"    pm.expect(jsonData.lastName, '\"lastName\" field').to.eql('updatedusers');",
+									"    pm.expect(jsonData.patronymic, '\"patronymic\" field').to.eql('updateduserssss');",
+									"    pm.expect(jsonData.email, '\"email\" field').to.eql('updateduser@user.com');",
+									"     pm.expect(jsonData.phone, '\"phone\" field').to.eql('+79214477711');",
+									"     pm.expect(jsonData.birthday, '\"birthday\" field').to.eql('1985-09-10');",
+									"     pm.expect(jsonData.isMaster, '\"isMaster\" field').to.eql(true);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"updateduser\",\n    \"lastName\": \"updatedusers\",\n    \"patronymic\": \"updateduserssss\",\n    \"email\": \"updateduser@user.com\",\n    \"phone\": \"+79214477711\",\n    \"birthday\": \"1985-09-10\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user/:userId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update user  with wrong email",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"updateduser\",\n    \"lastName\": \"updatedusers\",\n    \"patronymic\": \"updateduserssss\",\n    \"email\": \"updateuser.com\",\n    \"phone\": \"+79214477711\",\n    \"birthday\": \"1985-09-10\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user/:userId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update user  with wrong birthday",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"updateduser\",\n    \"lastName\": \"updatedusers\",\n    \"patronymic\": \"updateduserssss\",\n    \"email\": \"updateduser@user.com\",\n    \"phone\": \"+79214477711\",\n    \"birthday\": \"2050-09-10\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user/:userId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user id 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/user/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user id 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([404]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/user/:userId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Procedure",
+			"item": [
+				{
+					"name": "Get all procedures",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+									"});",
+									"pm.test(\"Test get all procedures\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.length, 'pricedures count in total').to.eql(2);",
+									"",
+									"    pm.expect(jsonData[0].id, 'result[0]: \"id\" field').to.eql(1);",
+									"    pm.expect(jsonData[0].procedureName, 'result[0]: \"procedureName\" field').to.eql('Маникюр');",
+									"    pm.expect(jsonData[0].description, 'result[0]: \"description\" field').to.eql('Косметическая процедура по обработке ногтей на пальцах рук и самих кистей рук.');",
+									"",
+									"    pm.expect(jsonData[1].id, 'result[1]: \"id\" field').to.eql(2);",
+									"    pm.expect(jsonData[1].procedureName, 'result[1]: \"procedureName\" field').to.eql('Педикюр');",
+									"    pm.expect(jsonData[1].description, 'result[1]: \"description\" field').to.eql('Специальный уход за пальцами ног или покрытие ногтей лаком.');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/procedure",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"procedure"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get procedure id 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+									"});",
+									"pm.test(\"Test get procedure\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.id, '\"id\" field').to.eql(1);",
+									"    pm.expect(jsonData.procedureName, '\"procedureName\" field').to.eql('Маникюр');",
+									"    pm.expect(jsonData.description, '\"description\" field').to.eql('Косметическая процедура по обработке ногтей на пальцах рук и самих кистей рук.');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/procedure/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"procedure",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Appointment",
+			"item": [
+				{
+					"name": "Create a client",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+									"});",
+									"pm.test(\"Test create client\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.id, '\"id\" field').to.eql(4);",
+									"    pm.expect(jsonData.firstName, '\"firstName\" field').to.eql('client');",
+									"    pm.expect(jsonData.lastName, '\"lastName\" field').to.eql('clients');",
+									"    pm.expect(jsonData.patronymic, '\"patronymic\" field').to.eql('clientttt');",
+									"    pm.expect(jsonData.email, '\"email\" field').to.eql('client@user.com');",
+									"     pm.expect(jsonData.phone, '\"phone\" field').to.eql('+79214479712');",
+									"     pm.expect(jsonData.birthday, '\"birthday\" field').to.eql('1987-12-10');",
+									"     pm.expect(jsonData.isMaster, '\"isMaster\" field').to.eql(false);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"client\",\n    \"lastName\": \"clients\",\n    \"patronymic\": \"clientttt\",\n    \"email\": \"client@user.com\",\n    \"phone\": \"+79214479712\",\n    \"birthday\": \"1987-12-10\",\n    \"isMaster\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a master",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+									"});",
+									"pm.test(\"Test create master\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.id, '\"id\" field').to.eql(5);",
+									"    pm.expect(jsonData.firstName, '\"firstName\" field').to.eql('master');",
+									"    pm.expect(jsonData.lastName, '\"lastName\" field').to.eql('master');",
+									"    pm.expect(jsonData.patronymic, '\"patronymic\" field').to.eql('masterrrr');",
+									"    pm.expect(jsonData.email, '\"email\" field').to.eql('master@user.com');",
+									"     pm.expect(jsonData.phone, '\"phone\" field').to.eql('+79210986754');",
+									"     pm.expect(jsonData.birthday, '\"birthday\" field').to.eql('1995-11-01');",
+									"     pm.expect(jsonData.isMaster, '\"isMaster\" field').to.eql(true);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"master\",\n    \"lastName\": \"master\",\n    \"patronymic\": \"masterrrr\",\n    \"email\": \"master@user.com\",\n    \"phone\": \"+79210986754\",\n    \"birthday\": \"1995-11-01\",\n    \"isMaster\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a master 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+									"});",
+									"pm.test(\"Test create master2\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.id, '\"id\" field').to.eql(6);",
+									"    pm.expect(jsonData.firstName, '\"firstName\" field').to.eql('master2');",
+									"    pm.expect(jsonData.lastName, '\"lastName\" field').to.eql('master2');",
+									"    pm.expect(jsonData.patronymic, '\"patronymic\" field').to.eql('masterrrr2');",
+									"    pm.expect(jsonData.email, '\"email\" field').to.eql('master2@user.com');",
+									"     pm.expect(jsonData.phone, '\"phone\" field').to.eql('+79218098745');",
+									"     pm.expect(jsonData.birthday, '\"birthday\" field').to.eql('1993-11-01');",
+									"     pm.expect(jsonData.isMaster, '\"isMaster\" field').to.eql(true);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"master2\",\n    \"lastName\": \"master2\",\n    \"patronymic\": \"masterrrr2\",\n    \"email\": \"master2@user.com\",\n    \"phone\": \"+79218098745\",\n    \"birthday\": \"1993-11-01\",\n    \"isMaster\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create  an appointment master client",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+									"});",
+									"pm.test(\"Test create appointment\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.id, '\"id\" field').to.eql(1);",
+									"    pm.expect(jsonData.client.id, '\"id\" field').to.eql(4);",
+									"    pm.expect(jsonData.master.id, '\"id\" field').to.eql(5);",
+									"    pm.expect(jsonData.procedure.id, '\"id\" field').to.eql(2);",
+									"    pm.expect(jsonData.start, '\"start\" field').to.eql('2023-12-12 10:00:00');",
+									"    pm.expect(jsonData.end, '\"end\" field').to.eql('2023-12-12 11:00:00');",
+									"    pm.expect(jsonData.status, '\"status\" field').to.eql('CREATED');",
+									"    pm.expect(jsonData.comments.length, 'comments count').to.eql(1);",
+									"",
+									"    pm.expect(jsonData.comments[0].id, 'comments[0]: \"id\" field').to.eql(1);",
+									"    pm.expect(jsonData.comments[0].userId, 'comments[0]: \"userId\" field').to.eql(4);",
+									"    pm.expect(jsonData.comments[0].userText, 'comments[0]: \"userText\" field').to.eql('Хочу розовый)');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"clientId\": 4,\n    \"masterId\": 5,\n    \"procedureId\": 2,\n    \"start\": \"2023-12-12 10:00:00\",\n    \"end\": \"2023-12-12 11:00:00\",\n    \"clientComment\": \"Хочу розовый)\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/appointment",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"appointment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Сreate an appointment where the master and client are the same user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 409\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([409]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"clientId\": 5,\n    \"masterId\": 5,\n    \"procedureId\": 2,\n    \"start\": \"2023-12-12 10:00:00\",\n    \"end\": \"2023-12-12 11:00:00\",\n    \"clientComment\": \"Хочу розовый)\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/appointment",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"appointment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Сreate an appointment with time overlap (before)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 409\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([409]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"clientId\": 4,\n    \"masterId\": 5,\n    \"procedureId\": 2,\n    \"start\": \"2023-12-12 09:30:00\",\n    \"end\": \"2023-12-12 10:30:00\",\n    \"clientComment\": \"Хочу розовый)\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/appointment",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"appointment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Сreate an appointment with time overlap (after)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 409\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([409]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"clientId\": 4,\n    \"masterId\": 5,\n    \"procedureId\": 2,\n    \"start\": \"2023-12-12 10:30:00\",\n    \"end\": \"2023-12-12 11:30:00\",\n    \"clientComment\": \"Хочу красный)\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/appointment",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"appointment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Сreate an appointment with time overlap (before and after)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 409\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([409]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"clientId\": 4,\n    \"masterId\": 5,\n    \"procedureId\": 2,\n    \"start\": \"2023-12-12 07:30:00\",\n    \"end\": \"2023-12-12 11:30:00\",\n    \"clientComment\": \"Хочу красный)\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/appointment",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"appointment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Сreate an appointment with time overlap (after and before)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 409\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([409]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"clientId\": 4,\n    \"masterId\": 5,\n    \"procedureId\": 2,\n    \"start\": \"2023-12-12 10:10:00\",\n    \"end\": \"2023-12-12 10:50:00\",\n    \"clientComment\": \"Хочу красный)\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/appointment",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"appointment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Сreate an appointment with time overlap (start and end equals another appointment) the same master",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 409\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([409]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"clientId\": 6,\n    \"masterId\": 5,\n    \"procedureId\": 2,\n    \"start\": \"2023-12-12 10:00:00\",\n    \"end\": \"2023-12-12 11:00:00\",\n    \"clientComment\": \"Хочу розовый)\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/appointment",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"appointment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Сreate an appointment with time overlap (start and end equals another appointment) the same client",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 409\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([409]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"clientId\": 4,\n    \"masterId\": 6,\n    \"procedureId\": 2,\n    \"start\": \"2023-12-12 10:00:00\",\n    \"end\": \"2023-12-12 11:00:00\",\n    \"clientComment\": \"Хочу розовый)\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/appointment",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"appointment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create  an appointment master client 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+									"});",
+									"pm.test(\"Test create appointment\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.id, '\"id\" field').to.eql(2);",
+									"    pm.expect(jsonData.client.id, '\"id\" field').to.eql(4);",
+									"    pm.expect(jsonData.master.id, '\"id\" field').to.eql(5);",
+									"    pm.expect(jsonData.procedure.id, '\"id\" field').to.eql(2);",
+									"    pm.expect(jsonData.start, '\"start\" field').to.eql('2023-12-12 11:00:00');",
+									"    pm.expect(jsonData.end, '\"end\" field').to.eql('2023-12-12 12:00:00');",
+									"    pm.expect(jsonData.status, '\"status\" field').to.eql('CREATED');",
+									"    pm.expect(jsonData.comments.length, 'comments count').to.eql(1);",
+									"",
+									"    pm.expect(jsonData.comments[0].id, 'comments[0]: \"id\" field').to.eql(2);",
+									"    pm.expect(jsonData.comments[0].userId, 'comments[0]: \"userId\" field').to.eql(4);",
+									"    pm.expect(jsonData.comments[0].userText, 'comments[0]: \"userText\" field').to.eql('Хочу розовый)');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"clientId\": 4,\n    \"masterId\": 5,\n    \"procedureId\": 2,\n    \"start\": \"2023-12-12 11:00:00\",\n    \"end\": \"2023-12-12 12:00:00\",\n    \"clientComment\": \"Хочу розовый)\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/appointment",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"appointment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create  an appointment master client 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+									"});",
+									"pm.test(\"Test create appointment\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.id, '\"id\" field').to.eql(3);",
+									"    pm.expect(jsonData.client.id, '\"id\" field').to.eql(4);",
+									"    pm.expect(jsonData.master.id, '\"id\" field').to.eql(5);",
+									"    pm.expect(jsonData.procedure.id, '\"id\" field').to.eql(2);",
+									"    pm.expect(jsonData.start, '\"start\" field').to.eql('2023-12-12 15:00:00');",
+									"    pm.expect(jsonData.end, '\"end\" field').to.eql('2023-12-12 16:00:00');",
+									"    pm.expect(jsonData.status, '\"status\" field').to.eql('CREATED');",
+									"    pm.expect(jsonData.comments.length, 'comments count').to.eql(1);",
+									"",
+									"    pm.expect(jsonData.comments[0].id, 'comments[0]: \"id\" field').to.eql(3);",
+									"    pm.expect(jsonData.comments[0].userId, 'comments[0]: \"userId\" field').to.eql(4);",
+									"    pm.expect(jsonData.comments[0].userText, 'comments[0]: \"userText\" field').to.eql('Хочу розовый)');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"clientId\": 4,\n    \"masterId\": 5,\n    \"procedureId\": 2,\n    \"start\": \"2023-12-12 15:00:00\",\n    \"end\": \"2023-12-12 16:00:00\",\n    \"clientComment\": \"Хочу розовый)\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/appointment",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"appointment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create  an appointment non-existent master",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 409\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([409]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"clientId\": 6,\n    \"masterId\": 4,\n    \"procedureId\": 1,\n    \"start\": \"2023-12-12 19:00:00\",\n    \"end\": \"2023-12-12 20:00:00\",\n    \"clientComment\": \"Хочу синий)\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/appointment",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"appointment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all appointments by master id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+									"});",
+									"pm.test(\"Test get all appointments by master id\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.length, 'appointments count').to.eql(3);",
+									"",
+									"    pm.expect(jsonData[0].id, 'result[0]: \"id\" field').to.eql(1);",
+									"    pm.expect(jsonData[0].master.id, 'result[0]: \"master.id\" field').to.eql(5);",
+									"",
+									"    pm.expect(jsonData[1].id, 'result[1]: \"id\" field').to.eql(2);",
+									"    pm.expect(jsonData[1].master.id, 'result[1]: \"master.id\" field').to.eql(5);",
+									"",
+									"    pm.expect(jsonData[2].id, 'result[2]: \"id\" field').to.eql(3);",
+									"    pm.expect(jsonData[2].master.id, 'result[2]: \"master.id\" field').to.eql(5);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/appointment/:masterId/all",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"appointment",
+								":masterId",
+								"all"
+							],
+							"variable": [
+								{
+									"key": "masterId",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all appointments by master id in the future",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+									"});",
+									"pm.test(\"Test get all appointments by master id\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.length, 'appointments count').to.eql(3);",
+									"",
+									"    pm.expect(jsonData[0].id, 'result[0]: \"id\" field').to.eql(1);",
+									"    pm.expect(jsonData[0].master.id, 'result[0]: \"master.id\" field').to.eql(5);",
+									"",
+									"    pm.expect(jsonData[1].id, 'result[1]: \"id\" field').to.eql(2);",
+									"    pm.expect(jsonData[1].master.id, 'result[1]: \"master.id\" field').to.eql(5);",
+									"",
+									"    pm.expect(jsonData[2].id, 'result[2]: \"id\" field').to.eql(3);",
+									"    pm.expect(jsonData[2].master.id, 'result[2]: \"master.id\" field').to.eql(5);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/appointment/:masterId/future",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"appointment",
+								":masterId",
+								"future"
+							],
+							"variable": [
+								{
+									"key": "masterId",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all appointments by master id in the past",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+									"});",
+									"pm.test(\"Test get all appointments by master id\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.length, 'appointments count').to.eql(0);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/appointment/:masterId/past",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"appointment",
+								":masterId",
+								"past"
+							],
+							"variable": [
+								{
+									"key": "masterId",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get appointment by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+									"});",
+									"pm.test(\"Test create appointment\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.id, '\"id\" field').to.eql(1);",
+									"    pm.expect(jsonData.client.id, '\"id\" field').to.eql(4);",
+									"    pm.expect(jsonData.master.id, '\"id\" field').to.eql(5);",
+									"    pm.expect(jsonData.procedure.id, '\"id\" field').to.eql(2);",
+									"    pm.expect(jsonData.start, '\"start\" field').to.eql('2023-12-12 10:00:00');",
+									"    pm.expect(jsonData.end, '\"end\" field').to.eql('2023-12-12 11:00:00');",
+									"    pm.expect(jsonData.status, '\"status\" field').to.eql('CREATED');",
+									"    pm.expect(jsonData.comments.length, 'comments count').to.eql(1);",
+									"",
+									"    pm.expect(jsonData.comments[0].id, 'comments[0]: \"id\" field').to.eql(1);",
+									"    pm.expect(jsonData.comments[0].userId, 'comments[0]: \"userId\" field').to.eql(4);",
+									"    pm.expect(jsonData.comments[0].userText, 'comments[0]: \"userText\" field').to.eql('Хочу розовый)');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/appointment/:appointmentId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"appointment",
+								":appointmentId"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": "",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "appointmentId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get appointment id 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+									"});",
+									"pm.test(\"Test create appointment\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.id, '\"id\" field').to.eql(3);",
+									"    pm.expect(jsonData.client.id, '\"id\" field').to.eql(4);",
+									"    pm.expect(jsonData.master.id, '\"id\" field').to.eql(5);",
+									"    pm.expect(jsonData.procedure.id, '\"id\" field').to.eql(2);",
+									"    pm.expect(jsonData.start, '\"start\" field').to.eql('2023-12-12 15:00:00');",
+									"    pm.expect(jsonData.end, '\"end\" field').to.eql('2023-12-12 16:00:00');",
+									"    pm.expect(jsonData.status, '\"status\" field').to.eql('CREATED');",
+									"    pm.expect(jsonData.comments.length, 'comments count').to.eql(1);",
+									"",
+									"    pm.expect(jsonData.comments[0].id, 'comments[0]: \"id\" field').to.eql(3);",
+									"    pm.expect(jsonData.comments[0].userId, 'comments[0]: \"userId\" field').to.eql(4);",
+									"    pm.expect(jsonData.comments[0].userText, 'comments[0]: \"userText\" field').to.eql('Хочу розовый)');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/appointment/:appointmentId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"appointment",
+								":appointmentId"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": "",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "appointmentId",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an appointment id 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/appointment/:appointmentId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"appointment",
+								":appointmentId"
+							],
+							"variable": [
+								{
+									"key": "appointmentId",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get appointment id 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([404]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/appointment/:appointmentId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"appointment",
+								":appointmentId"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": "",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "appointmentId",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update an appointment id 2 with null procedure",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+									"});",
+									"pm.test(\"Test create appointment\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.id, '\"id\" field').to.eql(2);",
+									"    pm.expect(jsonData.client.id, '\"id\" field').to.eql(4);",
+									"    pm.expect(jsonData.master.id, '\"id\" field').to.eql(5);",
+									"    pm.expect(jsonData.procedure.id, '\"id\" field').to.eql(2);",
+									"    pm.expect(jsonData.start, '\"start\" field').to.eql('2023-12-12 12:00:00');",
+									"    pm.expect(jsonData.end, '\"end\" field').to.eql('2023-12-12 13:00:00');",
+									"    pm.expect(jsonData.status, '\"status\" field').to.eql('RESCHEDULED');",
+									"    pm.expect(jsonData.comments.length, 'comments count').to.eql(1);",
+									"",
+									"    pm.expect(jsonData.comments[0].id, 'comments[0]: \"id\" field').to.eql(2);",
+									"    pm.expect(jsonData.comments[0].userId, 'comments[0]: \"userId\" field').to.eql(4);",
+									"    pm.expect(jsonData.comments[0].userText, 'comments[0]: \"userText\" field').to.eql('Хочу розовый)');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"start\": \"2023-12-12 12:00:00\",\n    \"end\": \"2023-12-12 13:00:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/appointment/:appointmentId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"appointment",
+								":appointmentId"
+							],
+							"variable": [
+								{
+									"key": "appointmentId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update an appointment id 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+									"});",
+									"pm.test(\"Test create appointment\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.id, '\"id\" field').to.eql(2);",
+									"    pm.expect(jsonData.client.id, '\"id\" field').to.eql(4);",
+									"    pm.expect(jsonData.master.id, '\"id\" field').to.eql(5);",
+									"    pm.expect(jsonData.procedure.id, '\"id\" field').to.eql(1);",
+									"    pm.expect(jsonData.start, '\"start\" field').to.eql('2023-12-12 12:00:00');",
+									"    pm.expect(jsonData.end, '\"end\" field').to.eql('2023-12-12 13:00:00');",
+									"    pm.expect(jsonData.status, '\"status\" field').to.eql('RESCHEDULED');",
+									"    pm.expect(jsonData.comments.length, 'comments count').to.eql(1);",
+									"",
+									"    pm.expect(jsonData.comments[0].id, 'comments[0]: \"id\" field').to.eql(2);",
+									"    pm.expect(jsonData.comments[0].userId, 'comments[0]: \"userId\" field').to.eql(4);",
+									"    pm.expect(jsonData.comments[0].userText, 'comments[0]: \"userText\" field').to.eql('Хочу розовый)');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"procedureId\": 1,\n    \"start\": \"2023-12-12 12:00:00\",\n    \"end\": \"2023-12-12 13:00:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/appointment/:appointmentId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"appointment",
+								":appointmentId"
+							],
+							"variable": [
+								{
+									"key": "appointmentId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Approve an appointment id 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+									"});",
+									"pm.test(\"Test create appointment\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.id, '\"id\" field').to.eql(1);",
+									"    pm.expect(jsonData.client.id, '\"id\" field').to.eql(4);",
+									"    pm.expect(jsonData.master.id, '\"id\" field').to.eql(5);",
+									"    pm.expect(jsonData.procedure.id, '\"id\" field').to.eql(2);",
+									"    pm.expect(jsonData.start, '\"start\" field').to.eql('2023-12-12 10:00:00');",
+									"    pm.expect(jsonData.end, '\"end\" field').to.eql('2023-12-12 11:00:00');",
+									"    pm.expect(jsonData.status, '\"status\" field').to.eql('APPROVED');",
+									"    pm.expect(jsonData.comments.length, 'comments count').to.eql(1);",
+									"",
+									"    pm.expect(jsonData.comments[0].id, 'comments[0]: \"id\" field').to.eql(1);",
+									"    pm.expect(jsonData.comments[0].userId, 'comments[0]: \"userId\" field').to.eql(4);",
+									"    pm.expect(jsonData.comments[0].userText, 'comments[0]: \"userText\" field').to.eql('Хочу розовый)');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/appointment/:appointmentId/resolution?approveOrReject=approve",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"appointment",
+								":appointmentId",
+								"resolution"
+							],
+							"query": [
+								{
+									"key": "approveOrReject",
+									"value": "approve"
+								}
+							],
+							"variable": [
+								{
+									"key": "appointmentId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reject an appointment id 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+									"});",
+									"pm.test(\"Test create appointment\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.id, '\"id\" field').to.eql(2);",
+									"    pm.expect(jsonData.client.id, '\"id\" field').to.eql(4);",
+									"    pm.expect(jsonData.master.id, '\"id\" field').to.eql(5);",
+									"    pm.expect(jsonData.procedure.id, '\"id\" field').to.eql(1);",
+									"    pm.expect(jsonData.start, '\"start\" field').to.eql('2023-12-12 12:00:00');",
+									"    pm.expect(jsonData.end, '\"end\" field').to.eql('2023-12-12 13:00:00');",
+									"    pm.expect(jsonData.status, '\"status\" field').to.eql('REJECTED');",
+									"    pm.expect(jsonData.comments.length, 'comments count').to.eql(1);",
+									"",
+									"    pm.expect(jsonData.comments[0].id, 'comments[0]: \"id\" field').to.eql(2);",
+									"    pm.expect(jsonData.comments[0].userId, 'comments[0]: \"userId\" field').to.eql(4);",
+									"    pm.expect(jsonData.comments[0].userText, 'comments[0]: \"userText\" field').to.eql('Хочу розовый)');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/appointment/:appointmentId/resolution?approveOrReject=reject",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"appointment",
+								":appointmentId",
+								"resolution"
+							],
+							"query": [
+								{
+									"key": "approveOrReject",
+									"value": "reject"
+								}
+							],
+							"variable": [
+								{
+									"key": "appointmentId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create  an appointment master client 4 intercepted with record id 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+									"});",
+									"pm.test(\"Test create appointment\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.id, '\"id\" field').to.eql(4);",
+									"    pm.expect(jsonData.client.id, '\"id\" field').to.eql(4);",
+									"    pm.expect(jsonData.master.id, '\"id\" field').to.eql(5);",
+									"    pm.expect(jsonData.procedure.id, '\"id\" field').to.eql(2);",
+									"    pm.expect(jsonData.start, '\"start\" field').to.eql('2023-12-12 12:00:00');",
+									"    pm.expect(jsonData.end, '\"end\" field').to.eql('2023-12-12 13:00:00');",
+									"    pm.expect(jsonData.status, '\"status\" field').to.eql('CREATED');",
+									"    pm.expect(jsonData.comments.length, 'comments count').to.eql(1);",
+									"",
+									"    pm.expect(jsonData.comments[0].id, 'comments[0]: \"id\" field').to.eql(4);",
+									"    pm.expect(jsonData.comments[0].userId, 'comments[0]: \"userId\" field').to.eql(4);",
+									"    pm.expect(jsonData.comments[0].userText, 'comments[0]: \"userText\" field').to.eql('Хочу розовый)');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"clientId\": 4,\n    \"masterId\": 5,\n    \"procedureId\": 2,\n    \"start\": \"2023-12-12 12:00:00\",\n    \"end\": \"2023-12-12 13:00:00\",\n    \"clientComment\": \"Хочу розовый)\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/appointment",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"appointment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create  an appointment master client intercepted with appointment id 4",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 409\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([409]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"clientId\": 4,\n    \"masterId\": 6,\n    \"procedureId\": 2,\n    \"start\": \"2023-12-12 12:00:00\",\n    \"end\": \"2023-12-12 13:00:00\",\n    \"clientComment\": \"Хочу розовый)\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/appointment",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"appointment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create  an appointment master client (the client is the master and another client is registered to him for the specified time)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 409\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([409]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"clientId\": 5,\n    \"masterId\": 6,\n    \"procedureId\": 2,\n    \"start\": \"2023-12-12 12:00:00\",\n    \"end\": \"2023-12-12 13:00:00\",\n    \"clientComment\": \"Хочу розовый)\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/appointment",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"appointment"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comment",
+			"item": [
+				{
+					"name": "Get all comments by appointment id 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+									"});",
+									"pm.test(\"Test get all comments by appointment id 2\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.length, 'appointments count').to.eql(1);",
+									"",
+									"    pm.expect(jsonData[0].id, 'result[0]: \"id\" field').to.eql(2);",
+									"    pm.expect(jsonData[0].userId, 'result[0]: \"userId\" field').to.eql(4);",
+									"    pm.expect(jsonData[0].appointmentId, 'result[0]: \"appointmentId\" field').to.eql(2);",
+									"    pm.expect(jsonData[0].text, 'result[0]: \"text\" field').to.eql('Хочу розовый)');",
+									"    });"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/comment/all/:appointmentId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"comment",
+								"all",
+								":appointmentId"
+							],
+							"variable": [
+								{
+									"key": "appointmentId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create comment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+									"});",
+									"pm.test(\"Test create comment\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.id, '\"id\" field').to.eql(5);",
+									"    pm.expect(jsonData.userId, '\"userId\" field').to.eql(5);",
+									"    pm.expect(jsonData.appointmentId, '\"appointmentId\" field').to.eql(2);",
+									"    pm.expect(jsonData.text, '\"text\" field').to.eql('Не подтверждено');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": 5,\n    \"appointmentId\": 2,\n    \"userText\": \"Не подтверждено\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/comment",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"comment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all comments by appointment id 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+									"});",
+									"pm.test(\"Test get all comments by appointment id 2\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.length, 'appointments count').to.eql(2);",
+									"",
+									"    pm.expect(jsonData[0].id, 'result[0]: \"id\" field').to.eql(2);",
+									"    pm.expect(jsonData[0].userId, 'result[0]: \"userId\" field').to.eql(4);",
+									"    pm.expect(jsonData[0].appointmentId, 'result[0]: \"appointmentId\" field').to.eql(2);",
+									"    pm.expect(jsonData[0].text, 'result[0]: \"text\" field').to.eql('Хочу розовый)');",
+									"",
+									"    pm.expect(jsonData[1].id, 'result[0]: \"id\" field').to.eql(5);",
+									"    pm.expect(jsonData[1].userId, 'result[0]: \"userId\" field').to.eql(5);",
+									"    pm.expect(jsonData[1].appointmentId, 'result[0]: \"appointmentId\" field').to.eql(2);",
+									"    pm.expect(jsonData[1].text, 'result[0]: \"text\" field').to.eql('Не подтверждено');",
+									"    });"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/comment/all/:appointmentId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"comment",
+								"all",
+								":appointmentId"
+							],
+							"variable": [
+								{
+									"key": "appointmentId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete comment id 5",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/comment/:commentId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"comment",
+								":commentId"
+							],
+							"variable": [
+								{
+									"key": "commentId",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all comments by appointment id 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+									"});",
+									"pm.test(\"Test get all comments by appointment id 2\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.length, 'appointments count').to.eql(1);",
+									"",
+									"    pm.expect(jsonData[0].id, 'result[0]: \"id\" field').to.eql(2);",
+									"    pm.expect(jsonData[0].userId, 'result[0]: \"userId\" field').to.eql(4);",
+									"    pm.expect(jsonData[0].appointmentId, 'result[0]: \"appointmentId\" field').to.eql(2);",
+									"    pm.expect(jsonData[0].text, 'result[0]: \"text\" field').to.eql('Хочу розовый)');",
+									"    });"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/comment/all/:appointmentId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"comment",
+								"all",
+								":appointmentId"
+							],
+							"variable": [
+								{
+									"key": "appointmentId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080"
+		}
+	]
+}
